@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <header class="header">
+        <img src="logo.png" alt="チームロゴ">
+    </header>
+
+    <main>
+        <h2>バスの乗車情報</h2>
+
+        <!-- 日付選択エリア（今日から7日分） -->
+        <section class="date-selector">
+            <!-- ここにJavaScriptで動的に日付ボタンを並べる -->
+            <ul id="date-list">
+                <!-- <li>4/21 (月)</li> など -->
+            </ul>
+            
+        </section>
+
+        <!-- 日付ごとの乗車入力フォーム -->
+        <section  class="ride-form">
+            <h3 id="selected-date-title">4月22日（火）の乗車情報</h3>
+
+                    <div class="stop-group">
+                      <h4>住吉台 - 17:30</h4>
+                      <ul>
+                        <li>佐藤 太郎</li>
+                        <li>山田 たろう</li>
+                      </ul>
+                    </div>
+                  
+                    <div class="stop-group">
+                      <h4>中山 - 17:40</h4>
+                      <ul>
+                        <li>鈴木 花子</li>
+                        <li>高橋 ひろし</li>
+                      </ul>
+                    </div>
+                  
+                    <!-- 停留所がない（利用しない）人を表示したい場合 -->
+                    <div class="stop-group">
+                      <h4>利用しない</h4>
+                      <ul>
+                        <li>伊藤 たけし</li>
+                      </ul>
+                    </div>
+           
+        </section>
+
+        
+    </main>
+
+  
+
+    <!-- ログイン中ユーザーの乗車状況 -->
+    <section class="ride-status-display">
+        <h3>4月22日（火）の乗車情報</h3>
+        <p>停留所：<strong>住吉台</strong></p>
+        <p>ステータス：<strong>利用する</strong></p>
+    </section>
+
+    <!-- ログイン中ユーザーの乗車設定変更 -->
+    <form action="/submit" method="post">
+        <section class="ride-status-form">
+            <h3>乗車設定を変更する</h3>
+                <label for="stop">停留所を選択</label>
+                <select name="stop" id="stop">
+                    <option value="sumiyoshidai">住吉台</option>
+                    <option value="nakayama">中山</option>
+                    <option value="choumeigaoka">長命ヶ丘</option>
+                    <!--  他の停留所も追加   -->
+                 </select>
+        </section>
+
+        <!-- 「利用する」チェックボックス -->
+        <div>
+            <label for="using">利用する</label>
+            <input type="checkbox" name="using" id="using">
+        </div> 
+
+        <!-- 「今日は利用しない」チェックボックス -->
+        <div>
+            <label for="notusing">利用しない</label>
+            <input type="checkbox" name="notusing" id="notusing">
+        </div>
+        <送信ボタン -->
+            <button type="submit">送信</button>
+
+    </form> 
+
+    <!-- ナビゲーションバー -->
+    <nav>
+        <ul>
+            <li><a href="/home.html">HOME</a></li>
+            <li><a href="/stops.html">停留所設定</a></li>
+            <li><a href="admin.html">管理者ページ</a></li>
+        </ul>
+    </nav>
+
+</body>
+
+</html>
